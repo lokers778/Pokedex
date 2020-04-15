@@ -7,5 +7,7 @@ class Pokemon extends React.Component {
         )
     }
 }
-
+Pokemon.defaultProps = {
+    //name:pokemon,
+}
 export default Pokemon
