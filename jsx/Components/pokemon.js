@@ -23,12 +23,12 @@ class Pokemon extends React.Component {
            slicedMoves= this.props.pokemonData.stats.slice(0,5) 
         }
         const statList = (slicedMoves||this.props.pokemonData.stats).map((el, index) => {
-            return (<li>{el.stat.name}:{el.base_stat}</li>)
+            return (<li key={index}>{el.stat.name}:{el.base_stat}</li>)
           })
           return statList
       }
     render() {
-        console.log(this.props.pokemonData)
+
         return (
             <li>
                 <h5>Name:{this.props.pokemonData.name}</h5>
