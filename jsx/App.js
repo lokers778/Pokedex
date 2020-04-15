@@ -5,22 +5,23 @@ import PokemonList from "./Components/pokemonList"
 import Footer from "./Components/footer";
 import FilterBar from "./Components/filterbar"
 import fetchData from "./helperFunctions/fetchDataFunction.js"
+import "../scss/main.scss"
 
 class App extends React.Component { 
         state = {
             fetchedDataAmount: false,
             pokemonAmount: 0,
-            typeAmount: 0,
+            typeList: null,
             pokemonList: [],
             pageNumber: 0,
         }
     generateType = (res) => {
         console.log(res);
-        this.setState({ pokemonAmount: res.count })
+        this.setState({ typeList: res.results})
     }
     generatePokemonList = (res) => {
         console.log(res);
-        this.setState({ typeAmount: res.count })
+        this.setState({ pokemonAmount: res.count })
     }
     componentDidMount = () => {
        fetchData(this.generatePokemonList, "pokemon/?limit=50&offset=0");
@@ -34,7 +35,7 @@ class App extends React.Component {
         return (
             <section className="container">
                 <Header />
-                <FilterBar fetchedData={this.state.fetchedDataAmount} typeAmount={this.state.typeAmount} />
+                <FilterBar fetchedData={this.state.fetchedDataAmount} typeList={this.state.typeList}/>
                 <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} />
                 <Footer />
             </section>

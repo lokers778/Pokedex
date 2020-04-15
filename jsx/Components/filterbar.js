@@ -1,15 +1,13 @@
 import React from "react";
+import TypeList from "./typesList"
 
 class FilterBar extends React.Component {
-    state = {
-        type: "all"
-    }
-
+  
     render() {
-        //console.log(this.props)
+        console.log(this.props)
         return (
-            <section>
-                FilterBar
+            <section className="filterBar">
+                <TypeList typeList={this.props.typeList}/>
             </section>
         )
     }
