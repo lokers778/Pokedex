@@ -12,19 +12,18 @@ class App extends React.Component {
             fetchedDataAmount: false,
             pokemonAmount: 0,
             typeList: null,
-            pokemonList: [],
+            pokemonList: null,
             pageNumber: 0,
         }
     generateType = (res) => {
-        console.log(res);
         this.setState({ typeList: res.results})
     }
     generatePokemonList = (res) => {
         console.log(res);
-        this.setState({ pokemonAmount: res.count })
+        this.setState({ pokemonAmount: res.count,pokemonList:res.results })
     }
     componentDidMount = () => {
-       fetchData(this.generatePokemonList, "pokemon/?limit=50&offset=0");
+       fetchData(this.generatePokemonList, "pokemon/?limit=10&offset=0");
         fetchData(this.generateType, "type");
     }
     componentDidUpdate() {
@@ -36,7 +35,7 @@ class App extends React.Component {
             <section className="container">
                 <Header />
                 <FilterBar fetchedData={this.state.fetchedDataAmount} typeList={this.state.typeList}/>
-                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} />
+                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} />
                 <Footer />
             </section>
         )

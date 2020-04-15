@@ -17,8 +17,6 @@ class TypeList extends React.Component {
         }
     }
 
-
-
     render() {
         this.typesListfunction()
         return <>{this.typesListfunction()}</>
