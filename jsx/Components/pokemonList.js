@@ -3,7 +3,6 @@ import Pokemon from './pokemon'
 import FetchData from "../helperFunctions/fetchDataFunction"
 class PokemonList extends React.Component {
     state = {
-        pokemonListCreated: null,
         listToDisplay:null,
     }
     pokemonListfunction = () => {
@@ -11,7 +10,10 @@ class PokemonList extends React.Component {
             return <li>Loading Data from pokedex</li>
         }
         else {
-            return <li>Loading Data from pokedex222</li>
+             const pokemonList = this.state.listToDisplay.map((el, index) => {
+                 return <Pokemon key={index} pokemonData={el}/>
+             })
+            return pokemonList
         }
         
     }
@@ -23,20 +25,17 @@ class PokemonList extends React.Component {
                      .then(res => res.json())
              )).then(res => {
                  this.setState({ listToDisplay: res })
-                 console.log(this.state)
+                 
              })
     }
     }
     render() {
-        console.log(this.props)
-        console.log(this.state)
         return (
             <main className="pokemonList">
                 <section className="pokedex">
-                    <ol>
+                    <ul>
                         {this.pokemonListfunction()}
-
-                    </ol>
+                    </ul>
                 </section>
                 <section className="pageList">
                 </section>
