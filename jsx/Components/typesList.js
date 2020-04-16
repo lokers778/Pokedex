@@ -8,11 +8,10 @@ class TypeList extends React.Component {
             .then(res => {
                 Promise.all(
                     res.pokemon.map((element)=>{return element.pokemon})
-                    ).then((res)=>{this.props.updatePokemonList(res)})
+                    ).then((res)=>{this.props.updatePokemonList(res,res.length)})
             })
     }
     typesListfunction = () => {
-       
         if (this.props.typeList == null) {
             return <h2>Loading Data from pokedex</h2>
         }

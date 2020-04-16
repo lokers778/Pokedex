@@ -28,7 +28,6 @@ class Pokemon extends React.Component {
           return statList
       }
     render() {
-
         return (
             <li>
                 <h5>Name:{this.props.pokemonData.name}</h5>

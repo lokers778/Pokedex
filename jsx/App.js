@@ -13,33 +13,34 @@ class App extends React.Component {
             pokemonAmount: 0,
             typeList: null,
             pokemonList: null,
-            pageNumber: 0,
+            pageNumber:0,
         }
-        updatePokemonList = pokemonList => {
-            this.setState({pokemonList: pokemonList })
+        updatePokemonList = (pokemonList,pokemonAmount) => {
+            this.setState({pokemonList: pokemonList ,pokemonAmount:pokemonAmount})
         }
     generateType = (res) => {
         this.setState({ typeList: res.results})
     }
     generatePokemonList = (res) => {
         console.log(res);
-        this.setState({ pokemonAmount: res.count,pokemonList:res.results })
+        this.setState({ pokemonAmount: res.count,pokemonList:res.results,})
     }
     componentDidMount = () => {
-       fetchData(this.generatePokemonList, "pokemon/?limit=&offset=0");
+       fetchData(this.generatePokemonList, "pokemon/?limit=200&offset=0");
         fetchData(this.generateType, "type");
     }
-    componentDidUpdate() {
-        // console.log(this.state)
+    componentDidUpdate(prevProps,prevState) {
+        if (prevState.pokemonAmount !== this.state.pokemonAmount) {
+            this.setState({ pageNumber: Math.ceil(this.state.pokemonAmount/200) })
+        }
     }
 
     render() {
-        console.log(this.state.pokemonList)
         return (
             <section className="container">
                 <Header />
-                <FilterBar fetchedData={this.state.fetchedDataAmount} typeList={this.state.typeList} updatePokemonList={this.updatePokemonList}/>
-                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} />
+                <FilterBar fetchedData={this.state.fetchedDataAmount} typeList={this.state.typeList} updatePokemonList={this.updatePokemonList} pokemonAmount={this.state.pokemonAmount} generatePokemonList={this.generatePokemonList}/>
+                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} pageNumber={this.state.pageNumber}/>
                 <Footer />
             </section>
         )
