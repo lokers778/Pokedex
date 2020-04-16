@@ -5,7 +5,15 @@
     flex-direction: row-reverse;
     height: 13vh;
     overflow: hidden;
-
+    @media #{$mobile}{
+        flex-wrap: wrap-reverse;
+        height: 23vh;
+      }
+      @media #{$smallPhone}{
+        flex-wrap: wrap-reverse;
+        height: 33vh;
+      }
+     
     h2 {
         font-size: 1.1em;
         word-wrap: break-word;
@@ -17,6 +25,9 @@
         flex: 4;
         display: flex;
         justify-content: space-evenly;
+        @media #{$smallPhone}{
+            flex-wrap: wrap-reverse;
+          }
 
         div {
             border-radius: 50%;
@@ -30,7 +41,11 @@
             margin: 2.5vh;
             font-size: 0.8em;
             font-weight: 700;
-
+            @media #{$mobile} ,#{$smallPhone}{
+                margin: 0.5vh;
+                height: 7vh;
+                width: 7vh;
+               }
             &:hover {
                 cursor: pointer;
             }
@@ -49,7 +64,9 @@
                 margin: 2px;
                 border-radius: 3px;
                 font-size: 0.8em;
-
+                @media #{$mobile},#{$smallPhone}{
+                    margin: 0;
+                   }
                 &:hover {
                     cursor: pointer;
                 }

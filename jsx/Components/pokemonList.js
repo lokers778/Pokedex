@@ -16,7 +16,7 @@ class PokemonList extends React.Component {
             return (
                 <div className="loadingDiv">
                     <li>Sorry We cannot find data, please try again</li>
-                    <img alt="sad pikachu" title="sad pikachu" src="../image/pikachu.png"></img>
+                    <img alt="sad pikachu" title="sad pikachu" src="image/pikachu.png"></img>
                 </div>
             )
         }

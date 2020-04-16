@@ -15,6 +15,10 @@ header {
             flex: 4;
             font-family: 'Press Start 2P', cursive;
             font-size: 2em;
+            text-align: center;
+            @media #{$mobile},#{$smallPhone}{
+              font-size: 1.5em;
+               }
         }
 
         &.logoImage {
@@ -32,6 +36,10 @@ header {
     overflow: hidden;
     animation:rotate 3s infinite;
     animation-delay: 2s;
+    @media #{$mobile},#{$smallPhone}{
+      transform:scale(0.7);
+      animation:rotateSmallPoke 3s infinite;
+       }
     .pokeballButton {
         position: absolute;
         top: calc(50% - 1vh);
@@ -59,14 +67,25 @@ header {
         height: 1vh;
         background: #000;
       }
-      @keyframes rotate {
-        0% { transform: translate(0, 0) rotate(0); }
-        20% { transform:  rotate(-20deg); }
-        30% { transform:  rotate(20deg); }
-        50% { transform:  rotate(-10deg); }
-        60% { transform: rotate(10deg); }
-        100% { transform: translate(0, 0) rotate(0); }
+      @media #{$mobile},#{$smallPhone}{
+      @keyframes rotateSmallPoke {
+        0% { transform: translate(0, 0) rotate(0) scale(0.7) ; }
+        20% { transform:  rotate(-20deg) scale(0.7); }
+        30% { transform:  rotate(20deg) scale(0.7); }
+        50% { transform:  rotate(-10deg) scale(0.7); }
+        60% { transform: rotate(10deg) scale(0.7); }
+        100% { transform: translate(0, 0) rotate(0) scale(0.7); }
       }
+     }
+        @keyframes rotate {
+          0% { transform: translate(0, 0) rotate(0) ; }
+          20% { transform:  rotate(-20deg); }
+          30% { transform:  rotate(20deg); }
+          50% { transform:  rotate(-10deg); }
+          60% { transform: rotate(10deg); }
+          100% { transform: translate(0, 0) rotate(0); }
+        
+         }
   }
   
    
