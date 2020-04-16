@@ -1,6 +1,5 @@
 import React from "react";
 import TypeList from "./typesList"
-import fetchData from "../helperFunctions/fetchDataFunction.js"
 class FilterBar extends React.Component {
     state = {
         moreLess: "more",
@@ -10,15 +9,14 @@ class FilterBar extends React.Component {
         fetch(`https://pokeapi.co/api/v2/pokemon/?limit=200&offset=0`)
             .then(res => res.json())
             .then((res) => { this.props.updatePokemonList(res.results, res.count) })
+            .catch((err) => { alert(err) })
     }
     handleChange = (e) => {
         this.setState({ inputValue: e.currentTarget.value });
     }
-
     handleChangeRadio = (e) => {
         this.setState({ moreLess: e.currentTarget.value });
     }
-
     updateList = (data, value = 0, moreLess) => {
         const oldList = this.props.pokemonDetailedList
         let newList = []
@@ -45,7 +43,7 @@ class FilterBar extends React.Component {
                 <section className="filterBySize">
                     <h4>Filter By</h4>
                     <div className="radioInputs">
-                        <label>Less  <input type="radio" name="moreLess" value="less" onChange={this.handleChangeRadio}  /></label>
+                        <label>Less  <input type="radio" name="moreLess" value="less" onChange={this.handleChangeRadio} /></label>
                         <label>More <input type="radio" name="moreLess" value="more" onChange={this.handleChangeRadio} /></label>
                     </div>
                     <input type="number" value={this.state.inputValue} onChange={this.handleChange} />

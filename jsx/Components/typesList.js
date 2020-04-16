@@ -7,10 +7,11 @@ class TypeList extends React.Component {
             .then(res => {
                 Promise.all(
                     res.pokemon.map((element)=>{return element.pokemon})
-                    ).then((res)=>{this.props.updatePokemonList(res,res.length)})
+                ).then((res) => { this.props.updatePokemonList(res, res.length) })
+                .catch((err) => { alert(err) })
             })
     }
-    typesListfunction = () => {
+    generateTypesListFunction = () => {
         if (this.props.typeList == null) {
             return (
                 <div className="loadingDiv">
@@ -31,10 +32,8 @@ class TypeList extends React.Component {
                 </ul>)
         }
     }
-
     render() {
-        this.typesListfunction()
-        return <>{this.typesListfunction()}</>
+        return <>{this.generateTypesListFunction()}</>
     }
 }
 export default TypeList;

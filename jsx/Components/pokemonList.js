@@ -31,6 +31,7 @@ class PokemonList extends React.Component {
         fetch(`https://pokeapi.co/api/v2/pokemon/?limit=200&offset=${offset}`)
             .then(res => res.json())
             .then((res) => { this.props.updatePokemonList(res.results, res.count) })
+            .catch((err) => { alert(err) })
     }
     createPageList = () => {
         if (this.props.pageNumber <= 1) {
@@ -43,7 +44,6 @@ class PokemonList extends React.Component {
             }
             return (newList)
         }
-
     }
     componentDidUpdate(prevProps) {
         if (prevProps.pokemonList !== this.props.pokemonList) {
@@ -53,7 +53,8 @@ class PokemonList extends React.Component {
                     .then(res => res.json())
             )).then(res => {
                 this.props.updatePokemonDetailedList(res)
-            })
+            }).catch((err) => { alert(err) })
+            
         }
     }
     render() {

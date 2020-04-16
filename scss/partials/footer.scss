@@ -1,4 +1,4 @@
-footer{
+footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,11 +7,12 @@ footer{
     background-color: $pokedexSecondColor;
     font-weight: 700;
     font-size: 1.1em;
-    .pokemonImage{
+    .pokemonImage {
         height: 100%;
     }
-    img{
-        width:auto;
+
+    img {
+        width: auto;
         height: 80%;
     }
 }

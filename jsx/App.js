@@ -36,7 +36,6 @@ class App extends React.Component {
             this.setState({ pageNumber: Math.ceil(this.state.pokemonAmount/200) })
         }
     }
-
     render() {
         return (
             <section className="container">
