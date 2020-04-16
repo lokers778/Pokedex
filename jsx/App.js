@@ -39,7 +39,7 @@ class App extends React.Component {
             <section className="container">
                 <Header />
                 <FilterBar fetchedData={this.state.fetchedDataAmount} typeList={this.state.typeList} updatePokemonList={this.updatePokemonList} pokemonAmount={this.state.pokemonAmount} generatePokemonList={this.generatePokemonList}/>
-                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} pageNumber={this.state.pageNumber}/>
+                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} pageNumber={this.state.pageNumber} updatePokemonList={this.updatePokemonList}/>
                 <Footer />
             </section>
         )

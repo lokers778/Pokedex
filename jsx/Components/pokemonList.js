@@ -4,7 +4,7 @@ class PokemonList extends React.Component {
     state = {
         listToDisplay: null,
     }
-    pokemonListfunction = () => {
+    generatePokemonList = () => {
         if (this.state.listToDisplay == null) {
             return <li>Loading Data from pokedex</li>
         }
@@ -18,6 +18,11 @@ class PokemonList extends React.Component {
             return pokemonList
         }
     }
+    handleClick = (offset) => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/?limit=200&offset=${offset}`)
+            .then(res => res.json())
+            .then((res) => { this.props.updatePokemonList(res.results, res.count) })
+    }
     createPageList = () => {
         if (this.props.pageNumber <= 1) {
             return null;
@@ -25,7 +30,7 @@ class PokemonList extends React.Component {
         else if (this.props.pageNumber > 1) { 
             let newList=[]
             for (let i = 1; i <= this.props.pageNumber; i++) {
-                newList.push(<li key={i}>{i}</li>)
+                newList.push(<li key={i} onClick={() => { this.handleClick((i-1)*200)}}>{i}</li>)
               }
             return (newList)
         }
@@ -47,7 +52,7 @@ class PokemonList extends React.Component {
             <main className="pokemonList">
                 <section className="pokedex">
                     <ul>
-                        {this.pokemonListfunction()}
+                        {this.generatePokemonList()}
                     </ul>
                 </section>
                 <section className="pageList">

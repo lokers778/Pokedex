@@ -5,7 +5,7 @@
     .pokedex {
         background-color: $backgroundBody;
         overflow-y: scroll;
-        height: 90%;
+        height: 92%;
         padding: 3% 2%;
         width: 95%;
         margin: 0 auto;
@@ -32,7 +32,7 @@
                 .pokemonBasic {
                     display: flex;
                     justify-content: space-around;
-                    background-color:transparent;
+                    background-color: transparent;
                     height: 46%;
                 }
 
@@ -48,7 +48,8 @@
                 .imgDiv {
                     overflow: hidden;
                     flex: 1;
-                    img{
+
+                    img {
                         width: 100%;
                         height: auto;
                     }
@@ -101,6 +102,28 @@
     }
 
     .pageList {
-        height: 10%;
+        height: 8%;
+        margin-top: 1vh;
+
+        ul {
+            height: 50%;
+            display: flex;
+            list-style-type: none;
+            width: 40%;
+            margin: 0 auto;
+            justify-content: space-evenly;
+
+            li {
+                flex: 1;
+                border: 1px solid black;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                height: 3vh;
+                &:hover{
+                    cursor:pointer;
+                }
+            }
+        }
     }
 }
