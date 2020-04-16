@@ -28,6 +28,7 @@ class Pokemon extends React.Component {
         return statList
     }
     render() {
+        console.log(this.props)
         return (
             <li className="pokemon">
                 <div className="pokemonBasic">
@@ -37,7 +38,9 @@ class Pokemon extends React.Component {
                         <h6>Height:{this.props.pokemonData.height}</h6>
                         <h6>Weight:{this.props.pokemonData.weight}</h6>
                     </div>
-                    <img alt={this.props.pokemonData.name} title={this.props.pokemonData.name} src={this.props.pokemonData.sprites.front_default} />
+                    <div className="imgDiv">
+                        <img alt={this.props.pokemonData.name} title={this.props.pokemonData.name} src={this.props.pokemonData.sprites.front_default || "./image/pokeball.png"} />
+                    </div>
                     <ul className="types">
                         <li><h4>Types:</h4></li>
                         {this.showTypes()}
@@ -54,8 +57,5 @@ class Pokemon extends React.Component {
             </li>
         )
     }
-}
-Pokemon.defaultProps = {
-    //name:pokemon,
 }
 export default Pokemon

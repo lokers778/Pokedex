@@ -4,8 +4,12 @@ class Header extends React.Component {
     render() {
         return (
             <header>
-                    <section className="logoImage">Logo Img</section>
-                    <section className="logoTitle">Logo Title</section>
+                <section className="logoImage">
+                    <div className="pokeball">
+                        <div class="pokeballButton"></div>
+                    </div>
+                </section>
+                <section className="logoTitle">Logo Title</section>
             </header>
         )
     }

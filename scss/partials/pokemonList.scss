@@ -1,12 +1,12 @@
 .pokemonList {
     height: 70vh;
-    font-size: 16px;
+    font-size: 18px;
 
     .pokedex {
         background-color: $backgroundBody;
         overflow-y: scroll;
         height: 90%;
-        padding: 5% 3%;
+        padding: 3% 2%;
         width: 95%;
         margin: 0 auto;
         border: 15px solid $pokedexBorderColor;
@@ -19,7 +19,7 @@
             justify-content: space-evenly;
 
             .pokemon {
-                background-color: $pokedexBorderColor;
+                background-color: $pokemonCardColor;
                 border: 1px solid black;
                 width: 24%;
                 overflow: hidden;
@@ -32,6 +32,8 @@
                 .pokemonBasic {
                     display: flex;
                     justify-content: space-around;
+                    background-color:transparent;
+                    height: 46%;
                 }
 
                 .pokemonBasicInfo {
@@ -43,10 +45,13 @@
                     justify-content: center;
                 }
 
-                img {
+                .imgDiv {
+                    overflow: hidden;
                     flex: 1;
-                    width: 100%;
-                    height: auto;
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
                 }
 
                 .grids {
