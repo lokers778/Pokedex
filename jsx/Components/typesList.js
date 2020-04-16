@@ -2,8 +2,7 @@ import React from "react";
 
 class TypeList extends React.Component {
     clickHandle = (e) => {
-        console.log(this.props)
-        fetch(`https://pokeapi.co/api/v2/type/${e.target.innerText}`)
+        fetch(`${e.target.dataset.url}`)
             .then(res => res.json())
             .then(res => {
                 Promise.all(
@@ -17,7 +16,7 @@ class TypeList extends React.Component {
         }
         else {
             const typeList = this.props.typeList.map((el, index) => {
-                return <li key={index} onClick={this.clickHandle}>{el.name}</li>
+                return <li key={index} data-url={el.url} onClick={this.clickHandle}>{el.name}</li>
             })
             return (
                 <ul className="typesBar">

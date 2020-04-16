@@ -22,7 +22,6 @@ class App extends React.Component {
         this.setState({ typeList: res.results})
     }
     generatePokemonList = (res) => {
-        console.log(res);
         this.setState({ pokemonAmount: res.count,pokemonList:res.results,})
     }
     componentDidMount = () => {

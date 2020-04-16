@@ -4,5 +4,19 @@ header {
     justify-content: space-evenly;
     height: 10vh;
     align-items: center;
-    background-color: blue;
+    background-color: $pokedexSecondColor;
+
+    section {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.logoTitle {
+            flex: 4;
+        }
+
+        &.logoImage {
+            flex: 1;
+        }
+    }
 }

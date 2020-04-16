@@ -8,6 +8,9 @@ class PokemonList extends React.Component {
         if (this.state.listToDisplay == null) {
             return <li>Loading Data from pokedex</li>
         }
+        else if (this.state.listToDisplay.length==0) {
+            return <li>Sorry We cannot find data about that type</li>
+        }
         else {
             const pokemonList = this.state.listToDisplay.map((el, index) => {
                 return <Pokemon key={index} pokemonData={el} />
@@ -22,7 +25,7 @@ class PokemonList extends React.Component {
         else if (this.props.pageNumber > 1) { 
             let newList=[]
             for (let i = 1; i <= this.props.pageNumber; i++) {
-                newList.push(<li>{i}</li>)
+                newList.push(<li key={i}>{i}</li>)
               }
             return (newList)
         }
@@ -40,7 +43,6 @@ class PokemonList extends React.Component {
         }
     }
     render() {
-        console.log(this.state)
         return (
             <main className="pokemonList">
                 <section className="pokedex">
