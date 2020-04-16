@@ -1,0 +1,17 @@
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    padding: 0 10%;
+    background-color: $pokedexSecondColor;
+    font-weight: 700;
+    font-size: 1.1em;
+    .pokemonImage{
+        height: 100%;
+    }
+    img{
+        width:auto;
+        height: 80%;
+    }
+}

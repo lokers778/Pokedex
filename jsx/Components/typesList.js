@@ -12,7 +12,14 @@ class TypeList extends React.Component {
     }
     typesListfunction = () => {
         if (this.props.typeList == null) {
-            return <h2>Loading Data from pokedex</h2>
+            return (
+                <div className="loadingDiv">
+                    <li>Loading Data from pokedex...</li>
+                    <div className="pokeball">
+                        <div className="pokeballButton"></div>
+                    </div>
+                </div>
+            )
         }
         else {
             const typeList = this.props.typeList.map((el, index) => {

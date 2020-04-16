@@ -104,7 +104,6 @@
     .pageList {
         height: 8%;
         margin-top: 1vh;
-
         ul {
             height: 50%;
             display: flex;
@@ -112,7 +111,6 @@
             width: 40%;
             margin: 0 auto;
             justify-content: space-evenly;
-
             li {
                 flex: 1;
                 border: 1px solid black;
@@ -120,8 +118,16 @@
                 align-items: center;
                 text-align: center;
                 height: 3vh;
+                background-color: #DBD8DA;
+                font-weight: 900;
+                transition:background-color 1s;
+                box-shadow: 0 2px 5px black;
                 &:hover{
                     cursor:pointer;
+                    background-color: #4F4E53;
+                }
+                &:active{
+                    transform: translateY(2px);
                 }
             }
         }

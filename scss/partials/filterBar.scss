@@ -1,11 +1,40 @@
 .filterBar {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row-reverse;
+    height: 13vh;
+    overflow: hidden;
+
+    h2 {
+        font-size: 1.1em;
+        word-wrap: break-word;
+        text-align: center;
+        flex: 1;
+    }
 
     .searchByDiv {
-        background-color: blue;
+        flex: 4;
         display: flex;
+        justify-content: space-evenly;
+
+        div {
+            border-radius: 50%;
+            background-color: $pokedexShowAllColor;
+            border: 1px solid black;
+            height: 8vh;
+            width: 8vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2.5vh;
+            font-size: 0.8em;
+            font-weight: 700;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
 
         ul {
             display: grid;
@@ -13,10 +42,63 @@
             list-style-type: none;
 
             li {
-                border: 1px solid black;
+                border: 2px solid black;
                 text-align: center;
+                color: white;
+                font-weight: 900;
+                margin: 2px;
+                border-radius: 3px;
+                font-size: 0.8em;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
+
+            @for $i from 1 through length($colors) {
+                li:nth-child(#{length($colors)}n+#{$i}) {
+                    background: nth($colors, $i)
+                }
+            }
+
+
         }
     }
 
+    .filterBySize {
+        flex: 1;
+
+        h4 {
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .radioInputs {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+
+            button {
+                overflow: hidden;
+                width: 41%;
+                margin: 2% 2%;
+                border-radius: 10px;
+                background-color: $pokemonCardColor;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        input[type=number] {
+            width: 30%;
+            margin: 0 35%;
+            background-color: $pokedexShowAllColor;
+        }
+    }
 }

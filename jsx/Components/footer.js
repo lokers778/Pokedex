@@ -4,8 +4,8 @@ class Footer extends React.Component {
     render() {
         return (
             <footer>
-                <div className="name">Company Name</div>
-                <div className="pokemon Image">Pikachu</div>
+                <div className="name">Pokedex v1.12 made by Pokemon Company</div>
+                <div className="pokemonImage"> <img alt="pokedex" title="pokedex" src="image/pokedex.png"/></div>
             </footer>
         )
     }

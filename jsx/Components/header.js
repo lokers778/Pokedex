@@ -6,10 +6,10 @@ class Header extends React.Component {
             <header>
                 <section className="logoImage">
                     <div className="pokeball">
-                        <div class="pokeballButton"></div>
+                        <div className="pokeballButton"></div>
                     </div>
                 </section>
-                <section className="logoTitle">Logo Title</section>
+                <section className="logoTitle"><h1>POKEDEX v.1.12</h1></section>
             </header>
         )
     }

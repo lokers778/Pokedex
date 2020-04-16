@@ -2,7 +2,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    height: 12vh;
+    height: calc(12vh - 10px);
     align-items: center;
     background-color: $pokedexSecondColor;
 
@@ -13,6 +13,8 @@ header {
         align-items: center;
         &.logoTitle {
             flex: 4;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2em;
         }
 
         &.logoImage {

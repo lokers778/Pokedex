@@ -28,7 +28,6 @@ class Pokemon extends React.Component {
         return statList
     }
     render() {
-        console.log(this.props)
         return (
             <li className="pokemon">
                 <div className="pokemonBasic">

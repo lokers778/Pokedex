@@ -9,14 +9,17 @@ import "../scss/main.scss"
 
 class App extends React.Component { 
         state = {
-            fetchedDataAmount: false,
             pokemonAmount: 0,
             typeList: null,
             pokemonList: null,
-            pageNumber:0,
+            pageNumber: 0,
+            pokemonDetailedList:null,
         }
         updatePokemonList = (pokemonList,pokemonAmount) => {
             this.setState({pokemonList: pokemonList ,pokemonAmount:pokemonAmount})
+        }
+        updatePokemonDetailedList = (pokemonDetailedList) => {
+            this.setState({pokemonDetailedList:pokemonDetailedList})
         }
     generateType = (res) => {
         this.setState({ typeList: res.results})
@@ -38,8 +41,8 @@ class App extends React.Component {
         return (
             <section className="container">
                 <Header />
-                <FilterBar fetchedData={this.state.fetchedDataAmount} typeList={this.state.typeList} updatePokemonList={this.updatePokemonList} pokemonAmount={this.state.pokemonAmount} generatePokemonList={this.generatePokemonList}/>
-                <PokemonList fetchedData={this.state.fetchedDataAmount} pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} pageNumber={this.state.pageNumber} updatePokemonList={this.updatePokemonList}/>
+                <FilterBar  typeList={this.state.typeList} updatePokemonList={this.updatePokemonList} pokemonList={this.state.pokemonList} pokemonAmount={this.state.pokemonAmount} updatePokemonList={this.updatePokemonList} pokemonDetailedList={this.state.pokemonDetailedList} updatePokemonDetailedList={this.updatePokemonDetailedList}  />
+                <PokemonList pokemonAmount={this.state.pokemonAmount} pokemonList={this.state.pokemonList} pageNumber={this.state.pageNumber} updatePokemonList={this.updatePokemonList} pokemonDetailedList={this.state.pokemonDetailedList} updatePokemonDetailedList={this.updatePokemonDetailedList}/>
                 <Footer />
             </section>
         )
