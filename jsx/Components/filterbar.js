@@ -40,18 +40,21 @@ class FilterBar extends React.Component {
         return (
             <section className="filterBar">
                 <h2>Found pokemons : {this.props.pokemonAmount}</h2>
+                  {/*
                 <section className="filterBySize">
                     <h4>Filter By</h4>
                     <div className="radioInputs">
                         <label>Less  <input type="radio" name="moreLess" value="less" onChange={this.handleChangeRadio} /></label>
                         <label>More <input type="radio" name="moreLess" value="more" onChange={this.handleChangeRadio} /></label>
                     </div>
+                  
                     <input type="number" value={this.state.inputValue} onChange={this.handleChange} />
                     <div className="button">
                         <button onClick={(e) => { this.updateList("height", this.state.inputValue, this.state.moreLess) }}>height</button>
                         <button onClick={(e) => { this.updateList("weight", this.state.inputValue, this.state.moreLess) }}>weight</button>
                     </div>
                 </section>
+                  */}
                 <section className="searchByDiv">
                     <div onClick={this.handleClick}>show All</div>
                     <TypeList typeList={this.props.typeList} updatePokemonList={this.props.updatePokemonList} />
